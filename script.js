@@ -1,5 +1,5 @@
 // check compatibility
-const statusField = document.getElementById('status');
+import imageEl from 'bar.jpg'
 let text = ""
 if (!("BarcodeDetector" in globalThis)) {
     text = "Barcode Detector is not supported by this browser.";
@@ -10,6 +10,16 @@ if (!("BarcodeDetector" in globalThis)) {
     const barcodeDetector = new BarcodeDetector({
       formats: ["code_39", "codabar", "ean_13"],
     });
+
+    barcodeDetector
+  .detect(imageEl)
+  .then((barcodes) => {
+    barcodes.forEach((barcode) => alert(barcode.rawValue));
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
   }
   
-  statusField.innerText = text
+  
