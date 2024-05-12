@@ -12,4 +12,4 @@ if (!("BarcodeDetector" in globalThis)) {
     });
   }
   
-  statusField.text = text
+  statusField.innerText = text
