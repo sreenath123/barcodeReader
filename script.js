@@ -1,5 +1,6 @@
 // check compatibility
 let text = ""
+const btn = document.querySelector("#btn")
 if (!("BarcodeDetector" in globalThis)) {
     text = "Barcode Detector is not supported by this browser.";
   } else {
@@ -15,14 +16,18 @@ if (!("BarcodeDetector" in globalThis)) {
     })
     imageEl.src = "img/bar.jpg"
 
-    barcodeDetector
-  .detect(imageEl)
-  .then((barcodes) => {
-    barcodes.forEach((barcode) => alert(barcode.rawValue));
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+    btn.addEventListener('click', () => {
+      barcodeDetector
+      .detect(imageEl)
+      .then((barcodes) => {
+        barcodes.forEach((barcode) => alert(barcode.rawValue));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    })
+
+   
 
   }
   
