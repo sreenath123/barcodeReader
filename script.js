@@ -1,5 +1,4 @@
 // check compatibility
-import imageEl from 'bar.jpg'
 let text = ""
 if (!("BarcodeDetector" in globalThis)) {
     text = "Barcode Detector is not supported by this browser.";
@@ -10,6 +9,11 @@ if (!("BarcodeDetector" in globalThis)) {
     const barcodeDetector = new BarcodeDetector({
       formats: ["code_39", "codabar", "ean_13"],
     });
+    const imageEl = new Image();
+    imageEl.addEventListener('load', () => {
+      alert('image loaded')
+    })
+    imageEl.src = "img/bar.jpg"
 
     barcodeDetector
   .detect(imageEl)
