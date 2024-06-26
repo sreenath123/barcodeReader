@@ -67,7 +67,7 @@
       stopStream();
       console.log("Selected value:", selectedValue);
 
-      startStream();
+      startStream(selectedValue);
       // You can perform any actions based on the selected value here
     });
 
@@ -81,11 +81,11 @@
     );
   }
 
-  function startStream() {
+  function startStream(selectedDeviceId) {
     navigator.mediaDevices
       .getUserMedia({
         ...defaultConstraint,
-        deviceId: { exact: select.value },
+        deviceId: { exact: selectedDeviceId },
       })
       .then((stream) => {
         video.srcObject = stream;
