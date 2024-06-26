@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    max-width:600px;
+    margin: 0 auto
+    justify-content: center;
+    align-items: center;
+}
+.mediaContainer{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    width: 100%;
+}
+.btnContainer{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+}
+#vid{
+    border: 2px black solid;
+}

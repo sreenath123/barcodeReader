@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>barcode</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <p>hello</p>
-    <p id="status"></p>
-    <button id="btn">Start</button>
+    <header>Demo</header>
+    <main class="container">
+        <section class="">
+            <label>Available Devices</label>
+            <select id="deviceSelection"></select>
+        </section>
+        <section class="mediaContainer">
+            <video autoplay id="video"></video>
+            <section class="btnContainer">
+                <button id="btn">Scan</button>
+                <button id="capture">Capture</button>
+            </section>
+
+        </section>
+        <section>
+            <canvas id="canvas"></canvas>
+            <!-- <section class="output">
+                <img id="photo" alt="The screen capture will appear in this box." />
+              </section> -->
+        </section>
+    </main>
+    <footer >
+
+        
+    </footer>
+
     <script src="script.js" type="module"></script>
 </body>
+
 </html>
