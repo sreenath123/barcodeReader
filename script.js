@@ -7,6 +7,7 @@
   let photo;
   let select;
   let stopBtn;
+  let scanBtn;
   let selectedDeviceId;
   const defaultConstraint = {
     video: true,
@@ -19,6 +20,7 @@
     // photo = document.querySelector("#photo");
     select = document.querySelector("#deviceSelection");
     stopBtn = document.querySelector("#stopBtn");
+    scanBtn = document.querySelector("#scanbtn")
 
     navigator.mediaDevices
       .enumerateDevices()
@@ -79,6 +81,15 @@
       },
       false
     );
+
+    scanBtn.addEventListener('click', async(event)=> {
+      event.preventDefault();
+      if('BarcodeDetector' in window){
+        let bcDetector = new window.BarcodeDetector();
+        let op = await bcDetector.detect(canvas)
+        console.log(op)
+      }
+    })
   }
 
   function startStream(selectedDeviceId) {
