@@ -161,6 +161,7 @@
     let y3 = bc.cornerPoints[2].y; 
     let x4 = bc.cornerPoints[3].x;
     let y4 = bc.cornerPoints[3].y;
+    ctx.strokeStyle = "red"
     ctx.beginPath(); 
 ctx.moveTo(x1, y1); 
 ctx.lineTo(x2, y2); 
