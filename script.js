@@ -88,6 +88,7 @@
         let bcDetector = new window.BarcodeDetector();
         let op = await bcDetector.detect(canvas)
         console.log(op)
+        drawLine(op)
       }
     })
   }
@@ -142,11 +143,38 @@
       context.drawImage(video, 0, 0, width, height);
 
       const data = canvas.toDataURL("image/png");
-      photo.setAttribute("src", data);
+     // photo.setAttribute("src", data);
+    //  drawLine()
     } else {
       clearphoto();
     }
   }
+  function drawLine(barcode) {
+    if(barcode.length){
+      const ctx = canvas.getContext("2d");
+    let bc = barcode[0];
+    let x1 = bc.cornerPoints[0].x;
+    let y1 = bc.cornerPoints[0].y; 
+    let x2 = bc.cornerPoints[1].x;
+    let y2 = bc.cornerPoints[1].y; 
+    let x3 = bc.cornerPoints[2].x;
+    let y3 = bc.cornerPoints[2].y; 
+    let x4 = bc.cornerPoints[3].x;
+    let y4 = bc.cornerPoints[3].y;
+    ctx.beginPath(); 
+ctx.moveTo(x1, y1); 
+ctx.lineTo(x2, y2); 
+ctx.lineTo(x3, y3);
+ctx.lineTo(x4, y4);
+ctx.lineTo(x1, y1);  
+ctx.stroke();
+    }
+     
+
+
+    
+  }
+  
 
   window.addEventListener("load", startup, false);
 })();
