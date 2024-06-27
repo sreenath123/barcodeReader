@@ -68,7 +68,7 @@
       console.log("Selected value:", selectedValue);
 
       startStream(selectedValue);
-      // You can perform any actions based on the selected value here
+      
     });
 
     stopBtn.addEventListener(
@@ -82,11 +82,13 @@
   }
 
   function startStream(selectedDeviceId) {
+    let constraint = selectedDeviceId? {video: {
+      deviceId: {
+        exact: selectedDeviceId
+      }
+    },audio: false}: {video: true, audio: false}
     navigator.mediaDevices
-      .getUserMedia({
-        ...defaultConstraint,
-        deviceId: { exact: selectedDeviceId },
-      })
+      .getUserMedia(constraint)
       .then((stream) => {
         video.srcObject = stream;
         video.play();
