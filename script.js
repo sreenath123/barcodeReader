@@ -9,6 +9,7 @@
   let stopBtn;
   let scanBtn;
   let selectedDeviceId;
+  let opMessage;
   const defaultConstraint = {
     video: true,
     audio: false,
@@ -20,7 +21,8 @@
     // photo = document.querySelector("#photo");
     select = document.querySelector("#deviceSelection");
     stopBtn = document.querySelector("#stopBtn");
-    scanBtn = document.querySelector("#scanbtn")
+    scanBtn = document.querySelector("#scanbtn");
+    opMessage = document.querySelector("#opMessage")
 
     navigator.mediaDevices
       .enumerateDevices()
@@ -87,7 +89,7 @@
       if('BarcodeDetector' in window){
         let bcDetector = new window.BarcodeDetector();
         let op = await bcDetector.detect(canvas)
-        console.log(op)
+        opMessage.innerText = op?.[0].rawValue
         drawLine(op)
       }
     })
