@@ -27,8 +27,7 @@
     navigator.mediaDevices
       .enumerateDevices()
       .then((devices) => {
-        filter(d => d.kind === 'videoinput')
-        devices.forEach((device) => {
+        devices.filter(d => d.kind === 'videoinput').forEach((device) => {
           let option = new Option(
             `${device.kind}: ${device.label}`,
             device.deviceId
